@@ -50,12 +50,12 @@ console.log(`foreign students: `, foreignStudent);
 const usersUpdated = users.map( function (user)  {
     let averageUserMark = user.marks.reduce((sum, current) => sum + current)/(user.marks.length - 1);
     return {
-        ['name']: user.name,
-        ['age']: user.age,
-        ['marks']: user.marks,
-        ['address']: user.address,
-        [`isAdult`]: user[`age`] >= 18,
-        [`averageMark`]: averageUserMark
+        name: user.name,
+        age: user.age,
+        marks: user.marks,
+        address: user.address,
+        isAdult: user[`age`] >= 18,
+        averageMark: averageUserMark
     }
 });
 
