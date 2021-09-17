@@ -62,15 +62,12 @@ const usersUpdated = users.map( function (user)  {
 console.log(`Users updated: `, usersUpdated);
 
 // average mark
-const totalStudentsMarks = usersUpdated.map( user => {
-    return user['averageMark'];
-})
 
-let sumOfStudentsMarks = totalStudentsMarks.reduce((sum, current) => {
-    return (sum + current);
-})
+let averageMark = usersUpdated.reduce((sum, user) => {
+    return (sum += user.marks.reduce((sumMarks, nextMark) =>
+        (sumMarks += nextMark), 0)/(user.marks.length - 1));
+}, 0) /(usersUpdated.length - 1);
 
-let averageMark = sumOfStudentsMarks / (totalStudentsMarks.length - 1);
 console.log(`average mark of students: `, averageMark);
 
 
